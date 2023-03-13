@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import linkedin from "../assets/linkedin.png";
-import github from "../assets/github.png";
-import linkedinWhite from "../assets/linkedin-white.png";
-import githubWhite from "../assets/github-white.png";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Hero = () => {
   const darkCharacterList = [
@@ -71,6 +68,7 @@ const Hero = () => {
   const [darkCharacter, setDarkCharacter] = useState([]);
   const [lightCharacter, setLightCharacter] = useState([]);
 
+  // character drag and drop handle events
   function handleOnDrag(e, draggedOnCharacter) {
     e.dataTransfer.setData("theCharacter", draggedOnCharacter);
   }
@@ -130,31 +128,9 @@ const Hero = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem]">
-      {/* navbar section */}
-      <div className="flex justify-between">
-        <h2 className="font-bold text-[12px] leading-none text-black dark:text-white md:text-[16px]">
-          Shehan.dev
-        </h2>
-        <div className="hidden md:block">
-          <ul className="flex gap-6 text-[14px] font-semibold">
-            <li className="hover:opacity-50 transition duration-500 text-black dark:text-white">
-              Home
-            </li>
-            <li className="hover:opacity-50 transition duration-500 text-black dark:text-white">
-              About
-            </li>
-            <li className="hover:opacity-50 transition duration-500 text-black dark:text-white">
-              Projects
-            </li>
-            <li className="hover:opacity-50 transition duration-500 text-black dark:text-white">
-              Contact
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] h-screen">
       {/* body details section */}
-      <div className="flex h-[90vh] w-full pt-[8rem] pb-5 justify-center items-start md:items-center md:pt-0 md:pl-[10rem] md:px-[8rem]">
+      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center md:pt-0 md:pl-[11.5rem] md:pr-[5rem]">
         <div className="flex flex-col items-center w-full md:flex-row">
           {/* text area section */}
           <div className="w-full pt-[1rem] md:pt-0">
@@ -163,7 +139,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, x: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="font-[800] text-[36px] leading-[1.2] w-full dark:text-white md:text-[45px]"
+              className="font-[800] text-[36px] leading-[1.2] w-full dark:text-white md:text-[49px]"
             >
               Hi, I'm Shehan{darkMode ? "👋🏻" : "👋"}
             </motion.div>
@@ -172,7 +148,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, x: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="font-[500] text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] md:text-[19px]"
+              className="font-[400] text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] md:text-[19px]"
             >
               I'm a front-end developer with a passion for building a beautiful
               and functional websites.
@@ -182,7 +158,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, y: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="flex justify-start items-center mt-4 gap-5 md:mt-6"
+              className="flex justify-start items-center mt-4 gap-4 md:mt-8"
             >
               <a
                 className="hover:opacity-50 transition duration-500"
@@ -190,11 +166,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src={darkMode ? linkedinWhite : linkedin}
-                  className="h-[19.5px] rounded-sm md:h-[22px]"
-                  alt="linkedin"
-                />
+                <FaLinkedin className="w-[22px] h-[22px] text-black dark:text-white md:w-[27px] md:h-[27px]" />
               </a>
               <a
                 className="hover:opacity-50 transition duration-500"
@@ -202,11 +174,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src={darkMode ? githubWhite : github}
-                  className="h-[20.5px] md:h-[23px]"
-                  alt="github"
-                />
+                <FaGithub className="w-[22px] h-[22px] text-black dark:text-white md:w-[27px] md:h-[27px]" />
               </a>
             </motion.div>
           </div>
@@ -222,17 +190,18 @@ const Hero = () => {
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 1.5, duration: 0.5 }}
               className={`flex flex-col justify-center items-center pt-0 w-full md:pt-10 ${
-                darkMode ? "px-[1.1rem]" : "px-[2rem]"
+                darkMode ? "px-[1.6rem] md:px-[2.8rem]" : "px-[2rem]"
               }`}
             >
               <div className="h-[80px] w-full border-dashed border-[2px] border-black overflow-clip dark:border-white md:h-[100px]">
                 <div className="w-full relative">
-                  <div className="flex px-4 gap-8 w-full dark:gap-[23px] md:px-6">
+                  {/* dashed text inside of the box */}
+                  <div className="flex gap-[1.3rem] w-full leading-[1.3] px-[14px] pr-6 dark:gap-[1rem] dark:pl-[14px] dark:pr-0">
                     {(darkMode ? lightCharacterList : darkCharacterList).map(
                       (item, index) => {
                         return (
                           <div
-                            className="text-[60px] font-bold dashed-font text-black opacity-10 dark:text-white md:text-[80px]"
+                            className="text-[60px] dashed-font text-black opacity-10 dark:text-white md:text-[80px]"
                             key={index + item.id}
                           >
                             {item.character}
@@ -241,8 +210,9 @@ const Hero = () => {
                       }
                     )}
                   </div>
+                  {/* dropping character display section */}
                   <div
-                    className="absolute h-[70px] w-full top-0 flex items-center gap-[18px] pt-[2px] px-3 md:h-[98px]"
+                    className="absolute h-[70px] w-full top-0 flex items-center gap-[17px] pt-[2px] px-4 dark:gap-[15px] md:px-3 md:h-[98px]"
                     onDrop={handleOnDrop}
                     onDragOver={handleOnDragOver}
                   >
@@ -261,6 +231,7 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
+              {/* dragging characters section */}
               <div className={`h-auto mt-5 flex items-center gap-5 px-5`}>
                 {(darkMode
                   ? shuffledLightCharacterList
@@ -273,16 +244,24 @@ const Hero = () => {
                   })
                   .map((item) => {
                     return (
-                      <div
+                      <motion.div
                         key={item.id}
-                        className="font-bold text-[44px] text-black/60 bg-transparent dark:text-white"
+                        className="font-bold text-[44px] text-black/60 bg-transparent cursor-pointer hover:opacity-90 transition duration-500 dark:text-white"
                         draggable
                         onDragStart={(e) => {
                           handleOnDrag(e, item.character);
                         }}
+                        initial={{ scale: 0 }}
+                        animate={{ rotate: [0, 180, 0], scale: 1 }}
+                        transition={{
+                          type: "spring",
+                          delay: 1.4,
+                          stiffness: 260,
+                          damping: 20,
+                        }}
                       >
                         {item.character}
-                      </div>
+                      </motion.div>
                     );
                   })}
               </div>
