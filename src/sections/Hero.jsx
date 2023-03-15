@@ -94,6 +94,14 @@ const Hero = () => {
     }
   }
 
+  function handleOnTap(tapCharacter) {
+    if (darkMode) {
+      setLightCharacter([...lightCharacter, tapCharacter]);
+    } else {
+      setDarkCharacter([...darkCharacter, tapCharacter]);
+    }
+  }
+
   const theme = JSON.parse(localStorage.getItem("theme"));
 
   useEffect(() => {
@@ -135,12 +143,12 @@ const Hero = () => {
 
   return (
     <div
-      className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] h-screen"
+      className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] lg:h-screen"
       id="home"
     >
       {/* body details section */}
-      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center md:pt-0 md:pl-[11.5rem] md:pr-[5rem]">
-        <div className="flex flex-col items-center w-full md:flex-row">
+      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center md:pr-[5rem] lg:pt-0 lg:pl-[11.5rem]">
+        <div className="flex flex-col items-center w-full lg:flex-row lg:mt-0">
           {/* text area section */}
           <div className="w-full pt-[1rem] md:pt-0">
             <motion.div
@@ -148,7 +156,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, x: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="font-[800] text-[36px] leading-[1.2] w-full text-black dark:text-white md:text-[49px]"
+              className="font-[800] text-[36px] leading-[1.2] w-full text-black dark:text-white lg:text-[49px]"
             >
               Hi, I'm Shehan{darkMode ? "👋🏻" : "👋"}
             </motion.div>
@@ -157,7 +165,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, x: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="font-[400] text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] md:text-[19px]"
+              className="font-[400] text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] lg:text-[19px]"
             >
               I'm a front-end developer with a passion for building a beautiful
               and functional websites.
@@ -167,7 +175,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, y: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="flex justify-start items-center mt-4 gap-4 md:mt-8"
+              className="flex justify-start items-center mt-4 gap-4 lg:mt-8"
             >
               <a
                 className="hover:opacity-50 transition duration-500"
@@ -175,7 +183,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaLinkedin className="w-[22px] h-[22px] text-black dark:text-white md:w-[27px] md:h-[27px]" />
+                <FaLinkedin className="w-[22px] h-[22px] text-black dark:text-white lg:w-[27px] lg:h-[27px]" />
               </a>
               <a
                 className="hover:opacity-50 transition duration-500"
@@ -183,7 +191,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaGithub className="w-[22px] h-[22px] text-black dark:text-white md:w-[27px] md:h-[27px]" />
+                <FaGithub className="w-[22px] h-[22px] text-black dark:text-white lg:w-[27px] lg:h-[27px]" />
               </a>
             </motion.div>
           </div>
@@ -240,8 +248,10 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
-              {/* dragging characters section */}
-              <div className={`h-auto mt-5 flex items-center gap-5 px-5`}>
+              {/* dragging characters section for desktop*/}
+              <div
+                className={`h-auto mt-5 hidden items-center gap-5 px-5 md:flex`}
+              >
                 {(darkMode
                   ? shuffledLightCharacterList
                   : shuffledDarkCharacterList
@@ -274,8 +284,44 @@ const Hero = () => {
                     );
                   })}
               </div>
-              <div className="text-[11px] text-[#54565C] pb-10 animate-bounce">
+              {/* tap characters section for mobile view*/}
+              <div
+                className={`h-auto mt-5 flex items-center gap-5 px-5 md:hidden`}
+              >
+                {(darkMode
+                  ? shuffledLightCharacterList
+                  : shuffledDarkCharacterList
+                )
+                  .filter((item) => {
+                    return !(
+                      darkMode ? lightCharacter : darkCharacter
+                    ).includes(item.character);
+                  })
+                  .map((item) => {
+                    return (
+                      <motion.div
+                        key={item.id}
+                        className="font-bold text-[44px] text-black/60 bg-transparent cursor-pointer hover:opacity-90 transition duration-500 dark:text-white"
+                        onClick={() => handleOnTap(item.character)}
+                        initial={{ scale: 0 }}
+                        animate={{ rotate: [0, 180, 0], scale: 1 }}
+                        transition={{
+                          type: "spring",
+                          delay: 1.4,
+                          stiffness: 260,
+                          damping: 20,
+                        }}
+                      >
+                        {item.character}
+                      </motion.div>
+                    );
+                  })}
+              </div>
+              <div className="text-[11px] text-[#54565C] pb-10 animate-bounce hidden md:block">
                 drag and drop to fill the word
+              </div>
+              <div className="text-[11px] text-[#54565C] pb-10 animate-bounce block md:hidden">
+                tap on a characters to fill the word
               </div>
             </motion.div>
           </div>
