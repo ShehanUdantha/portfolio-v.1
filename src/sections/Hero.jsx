@@ -54,6 +54,12 @@ const Hero = () => {
       newArray[i] = newArray[random];
       newArray[random] = temp;
     }
+
+    if (newArray.join("") === "DARK" || newArray.join("") === "LIGHT") {
+      // console.log("found");
+      shuffleArray(newArray);
+    }
+
     return newArray;
   }
 
@@ -128,7 +134,10 @@ const Hero = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] h-screen">
+    <div
+      className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] h-screen"
+      id="home"
+    >
       {/* body details section */}
       <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center md:pt-0 md:pl-[11.5rem] md:pr-[5rem]">
         <div className="flex flex-col items-center w-full md:flex-row">
@@ -139,7 +148,7 @@ const Hero = () => {
               whileInView={{ opacity: 1, x: 0 }}
               view={{ once: true, amount: 0.5 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="font-[800] text-[36px] leading-[1.2] w-full dark:text-white md:text-[49px]"
+              className="font-[800] text-[36px] leading-[1.2] w-full text-black dark:text-white md:text-[49px]"
             >
               Hi, I'm Shehan{darkMode ? "👋🏻" : "👋"}
             </motion.div>
@@ -265,14 +274,9 @@ const Hero = () => {
                     );
                   })}
               </div>
-              <motion.div
-                initial={{ y: 0 }}
-                animate={{ y: 5 }}
-                transition={{ repeat: Infinity, delay: 1.5, duration: 0.7 }}
-                className="text-[11px] text-[#54565C] pb-10"
-              >
+              <div className="text-[11px] text-[#54565C] pb-10 animate-bounce">
                 drag and drop to fill the word
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>

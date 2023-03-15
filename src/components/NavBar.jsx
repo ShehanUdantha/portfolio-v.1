@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi";
+import { Link } from "react-scroll";
 
 const NavBar = () => {
   const navItemsList = [
@@ -18,14 +19,26 @@ const NavBar = () => {
           Shehan.dev
         </h2>
         <div className="hidden md:block">
-          <ul className="flex gap-6 text-[14px] font-semibold">
+          <ul className="flex gap-6 font-semibold items-center">
             {navItemsList.map((item, index) => {
               return (
                 <li
-                  className="hover:opacity-50 transition duration-500 text-black dark:text-white"
+                  className="hover:opacity-50 transition duration-500 text-[14px] text-black cursor-pointer dark:text-white"
                   key={item.id + index}
                 >
-                  {item.name}
+                  <Link
+                    to={item.name.toLowerCase()}
+                    spy={true}
+                    smooth={true}
+                    hashSpy={true}
+                    duration={500}
+                    delay={100}
+                    isDynamic={true}
+                    ignoreCancelEvents={false}
+                    spyThrottle={500}
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               );
             })}
@@ -49,7 +62,7 @@ const NavBar = () => {
         <AnimatePresence mode="wait">
           {navToggle && (
             <motion.div
-              className="w-full h-[70px] bg-black/10 absolute top-7 rounded-b-lg flex items-center justify-center dark:bg-white/10 backdrop-blur-[10px] md:hidden"
+              className="w-full h-[70px] bg-[#f8f8f8]/80 absolute top-7 rounded-b-lg flex items-center justify-center dark:bg-white/10 backdrop-blur-[10px] md:hidden"
               initial={{
                 height: 0,
                 opacity: 0,
@@ -85,10 +98,23 @@ const NavBar = () => {
                 {navItemsList.map((item, index) => {
                   return (
                     <li
-                      className="hover:opacity-50 transition duration-500 text-black dark:text-white"
+                      className="hover:opacity-50 transition duration-500 cursor-pointer text-black dark:text-white"
                       key={item.id + "-" + index}
                     >
-                      {item.name}
+                      <Link
+                        to={item.name.toLowerCase()}
+                        spy={true}
+                        smooth={true}
+                        hashSpy={true}
+                        offset={5}
+                        duration={500}
+                        delay={100}
+                        isDynamic={true}
+                        ignoreCancelEvents={false}
+                        spyThrottle={500}
+                      >
+                        {item.name}
+                      </Link>
                     </li>
                   );
                 })}
