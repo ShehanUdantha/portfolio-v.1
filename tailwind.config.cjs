@@ -13,6 +13,10 @@ module.exports = {
           "50%": { transform: "translateY(0)" },
         },
       },
+      transitionDuration: {
+        0: "0ms",
+        2000: "2000ms",
+      },
     },
   },
   plugins: [],

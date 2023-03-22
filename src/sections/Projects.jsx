@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import Netflix from "../assets/netflix.png";
 import Salon from "../assets/salon.png";
+import ToolTip from "../components/ToolTip";
 
 const Projects = () => {
   return (
-    <div
+    <section
       className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem]"
       id="projects"
     >
-      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:py-[4.5rem] lg:px-[11.5rem]">
+      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:pr-[3.5rem] lg:pl-[3rem] xl:py-[4.5rem] xl:px-[11.5rem]">
         <motion.div
           className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white md:text-[34px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          view={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
         >
           Projects
         </motion.div>
@@ -30,8 +30,7 @@ const Projects = () => {
                 className="text-[24px] font-semibold text-black/90 flex justify-center dark:text-white/90 md:justify-start"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                view={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.9, duration: 0.5 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
               >
                 SalonLK
               </motion.div>
@@ -41,11 +40,13 @@ const Projects = () => {
                 {/* description area */}
                 <div className="w-full md:pl-[2rem] md:mt-[1.5rem]">
                   <motion.div
-                    className="bg-black/90 text-white text-[14px] p-[2rem] rounded-b-md backdrop-blur w-full md:rounded-l-md md:rounded-br-none lg:w-full dark:text-black dark:bg-[#a7a7a8]"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    view={{ once: true, amount: 0.5 }}
-                    transition={{ delay: 1, duration: 0.5 }}
+                    className="bg-black/90 text-white text-[14px] p-[2rem] min-h-[200px] max-h-[270px] rounded-b-md backdrop-blur w-full overflow-hidden md:rounded-l-md md:rounded-br-none lg:w-full dark:text-black dark:bg-[#a7a7a8]"
+                    initial={{ y: -15, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 0.7,
+                    }}
                   >
                     <p>
                       SalonLK is a salon appointment booking website. that
@@ -67,136 +68,76 @@ const Projects = () => {
                 </div>
                 {/* link section */}
                 <div className="w-full px-[2rem] flex justify-center md:justify-start">
-                  <motion.div
-                    className="flex gap-5 px-[2rem] w-full py-[1rem] text-[14px] text-black dark:text-[#a7a7a8]"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    view={{ once: true, amount: 0.5 }}
-                    transition={{ delay: 1.2, duration: 0.5 }}
-                  >
-                    <a
-                      className="flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto"
-                      href="https://github.com/ToshaEX/SALOnLK"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div className="flex justify-center gap-5 px-[2rem] w-full py-[1rem] text-[14px] text-black dark:text-[#a7a7a8] md:justify-start">
+                    <motion.div
+                      initial={{ x: -15, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 1,
+                        delay: 0.9,
+                      }}
                     >
-                      <p>Code</p>
-                      <FaGithub className="h-[21px] w-[21px]" />
-                    </a>
-                    <a
-                      className="flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto"
-                      href="http://128.199.83.236:3000/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      <ToolTip message={"view source code"}>
+                        <a
+                          className="flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto"
+                          href="https://github.com/ToshaEX/SALOnLK"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p>Code</p>
+                          <FaGithub className="h-[21px] w-[21px]" />
+                        </a>
+                      </ToolTip>
+                    </motion.div>
+                    <motion.div
+                      initial={{ x: -15, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 1,
+                        delay: 1,
+                      }}
                     >
-                      <p>Online</p>
-                      <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                      </span>
-                    </a>
-                  </motion.div>
+                      <ToolTip message={"view live demo"}>
+                        <a
+                          className="flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto"
+                          href="http://128.199.83.236:3000/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p>Online</p>
+                          <span className="relative flex h-3 w-3">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                          </span>
+                        </a>
+                      </ToolTip>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
               {/* demo image section */}
               <motion.div
                 className="w-full h-[280px] rounded-t-lg overflow-hidden mt-[2rem] shadow-md md:rounded-lg md:mt-2 lg:mt-0"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                view={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1.7, duration: 0.8 }}
+                initial={{ y: -15, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.7,
+                }}
               >
                 <img
                   src={Salon}
                   alt="netflix"
-                  className="transition-all duration-1000 hover:-translate-y-[65%] md:hover:-translate-y-[70%]"
+                  className="transition-all duration-2000 hover:-translate-y-[65%] md:hover:-translate-y-[73%]"
                 />
               </motion.div>
             </div>
           </div>
 
           {/* second project */}
-          <div className="w-full pt-[4rem] flex flex-col">
-            <div className="w-full px-[2rem] mt-[0.5rem]">
-              {/* project name */}
-              <motion.div
-                className="text-[24px] font-semibold text-black/90 flex justify-center dark:text-white/90 md:justify-start"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                view={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.9, duration: 0.5 }}
-              >
-                Netflix Clone
-              </motion.div>
-            </div>
-            <div className="w-full flex flex-col-reverse md:flex-row">
-              {/* description area */}
-              <div className="w-full md:pt-2">
-                <div className="w-full md:pl-[2rem] md:mt-[1.5rem]">
-                  <motion.div
-                    className="bg-black/90 text-white text-[14px] p-[2rem] rounded-b-md backdrop-blur w-full md:rounded-l-md md:rounded-br-none lg:w-full dark:text-black dark:bg-[#a7a7a8]"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    view={{ once: true, amount: 0.5 }}
-                    transition={{ delay: 1, duration: 0.5 }}
-                  >
-                    <p>
-                      Netflix is an extremely popular streaming service. So, I
-                      clone the front-end of that website. that includes
-                      Homepage, Sign-in and Sign-up pages.
-                    </p>
-                    <div className="flex text-white/80 items-center justify-start pt-3 gap-3 w-full">
-                      <div className="flex items-center gap-1">
-                        <div className="w-[6px] h-[6px] rounded-r-full bg-white" />
-                        React Js
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <div className="w-[6px] h-[6px] rounded-r-full bg-white" />
-                        Tailwind CSS
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-                {/* link area */}
-                <div className="w-full px-[2rem] flex justify-center md:justify-start ">
-                  <motion.div
-                    className="flex gap-5 px-[2rem] py-[1rem] w-full text-[14px] text-black dark:text-[#a7a7a8]"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    view={{ once: true, amount: 0.5 }}
-                    transition={{ delay: 1.2, duration: 0.5 }}
-                  >
-                    <a
-                      className="flex w-full gap-1 items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto"
-                      href="https://github.com/ShehanUdantha/netflix-clone"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <p>Code</p>
-                      <FaGithub className="h-[21px] w-[21px]" />
-                    </a>
-                  </motion.div>
-                </div>
-              </div>
-              {/* demo image section */}
-              <motion.div
-                className="w-full h-[280px] rounded-t-lg overflow-hidden mt-[2rem] shadow-md md:rounded-lg md:mt-0"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                view={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1.7, duration: 0.8 }}
-              >
-                <img
-                  src={Netflix}
-                  alt="netflix"
-                  className="transition-all duration-1000 hover:-translate-y-[70%] md:hover:-translate-y-[75%]"
-                />
-              </motion.div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

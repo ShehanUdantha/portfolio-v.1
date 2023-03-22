@@ -55,8 +55,12 @@ const Hero = () => {
       newArray[random] = temp;
     }
 
-    if (newArray.join("") === "DARK" || newArray.join("") === "LIGHT") {
-      // console.log("found");
+    let testCharacters = newArray.map((item) => item.character);
+
+    if (
+      testCharacters.join("") === "DARK" ||
+      testCharacters.join("") === "LIGHT"
+    ) {
       shuffleArray(newArray);
     }
 
@@ -142,40 +146,100 @@ const Hero = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div
-      className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] lg:h-screen"
+    <section
+      className="py-[1rem] px-[20px] bg-white dark:bg-[#121212] md:px-[3rem] lg:h-screen"
       id="home"
     >
       {/* body details section */}
-      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center md:pr-[5rem] lg:pt-0 lg:pl-[11.5rem]">
+      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center lg:pt-0 lg:pl-[3rem] xl:pl-[11.5rem] xl:pr-[5rem]">
         <div className="flex flex-col items-center w-full lg:flex-row lg:mt-0">
           {/* text area section */}
           <div className="w-full pt-[1rem] md:pt-0">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              view={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="font-[800] text-[36px] leading-[1.2] w-full text-black dark:text-white lg:text-[49px]"
-            >
-              Hi, I'm Shehan{darkMode ? "👋🏻" : "👋"}
+            <div className="font-[800] overflow-hidden flex items-center justify-start text-[36px] leading-[1.2] w-full text-black dark:text-white lg:text-[49px]">
+              <motion.span
+                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 0.2,
+                  ease: [0.6, 0.01, 0.05, 0.95],
+                }}
+              >
+                Hi,
+              </motion.span>
+              &nbsp;
+              <motion.span
+                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 0.3,
+                  ease: [0.6, 0.01, 0.05, 0.95],
+                }}
+              >
+                I'm
+              </motion.span>
+              &nbsp;
+              <motion.span
+                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 0.3,
+                  ease: [0.6, 0.01, 0.05, 0.95],
+                }}
+              >
+                Shehan
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 0.5,
+                  ease: [0.6, 0.01, 0.05, 0.95],
+                }}
+              >
+                {darkMode ? "👋🏻" : "👋"}
+              </motion.span>
+            </div>
+            <motion.div className="font-[400] overflow-hidden text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] lg:text-[19px]">
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: window.innerWidth <= 1022 ? -40 : -50,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 1.3,
+                  delay: 0.7,
+                  ease: [0.6, 0.01, 0.05, 0.95],
+                }}
+              >
+                I'm a front-end developer with a passion for building a
+                beautiful and functional websites.
+              </motion.p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              view={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="font-[400] text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] lg:text-[19px]"
-            >
-              I'm a front-end developer with a passion for building a beautiful
-              and functional websites.
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              view={{ once: true, amount: 0.5 }}
-              transition={{ delay: 1, duration: 0.5 }}
               className="flex justify-start items-center mt-4 gap-4 lg:mt-8"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.3, duration: 0.8 }}
             >
               <a
                 className="hover:opacity-50 transition duration-500"
@@ -197,20 +261,22 @@ const Hero = () => {
           </div>
           {/* drag and drop section */}
           <div
-            className={`flex justify-end items-center w-full pt-[5rem] md:pt-0 ${
-              darkMode ? "md:px-[2.7rem]" : "md:px-[5rem]"
+            className={`flex justify-end items-center w-full pt-[5rem] overflow-hidden md:pt-0 ${
+              darkMode ? "xl:px-[2.7rem]" : "xl:px-[4.5rem]"
             }`}
           >
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              view={{ once: true, amount: 0.5 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
               className={`flex flex-col justify-center items-center pt-0 w-full md:pt-10 ${
                 darkMode ? "px-[1.6rem] md:px-[2.8rem]" : "px-[2rem]"
               }`}
+              initial={{ y: -10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+                delay: 1.3,
+              }}
             >
-              <div className="h-[80px] w-full border-dashed border-[2px] border-black overflow-clip dark:border-white md:h-[100px]">
+              <div className="h-[80px] w-full max-w-[270px] border-dashed border-[2px] border-black overflow-clip dark:border-white md:h-[100px] md:max-w-[325px] dark:max-w-[285px] md:dark:max-w-[340px]">
                 <div className="w-full relative">
                   {/* dashed text inside of the box */}
                   <div className="flex gap-[1.3rem] w-full leading-[1.3] px-[14px] pr-6 dark:gap-[1rem] dark:pl-[14px] dark:pr-0">
@@ -218,7 +284,7 @@ const Hero = () => {
                       (item, index) => {
                         return (
                           <div
-                            className="text-[60px] dashed-font text-black opacity-10 dark:text-white md:text-[80px]"
+                            className="text-[60px] dashed-font text-black opacity-20 dark:text-white md:text-[79px]"
                             key={index + item.id}
                           >
                             {item.character}
@@ -250,7 +316,7 @@ const Hero = () => {
               </div>
               {/* dragging characters section for desktop*/}
               <div
-                className={`h-auto mt-5 hidden items-center gap-5 px-5 md:flex`}
+                className={`h-auto mt-5 hidden items-center gap-[22px] px-5 md:flex`}
               >
                 {(darkMode
                   ? shuffledLightCharacterList
@@ -317,17 +383,17 @@ const Hero = () => {
                     );
                   })}
               </div>
-              <div className="text-[11px] text-[#54565C] pb-10 animate-bounce hidden md:block">
+              <div className="text-[11px] text-[#54565C] text-center pb-10 animate-bounce hidden md:block">
                 drag and drop to fill the word
               </div>
-              <div className="text-[11px] text-[#54565C] pb-10 animate-bounce block md:hidden">
+              <div className="text-[11px] text-[#54565C] text-center pb-10 animate-bounce block md:hidden">
                 tap on a characters to fill the word
               </div>
             </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
