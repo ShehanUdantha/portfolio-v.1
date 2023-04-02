@@ -45,7 +45,8 @@ const Hero = () => {
     },
   ];
 
-  function shuffleArray(array) {
+  // shuffled given character list
+  function shuffleList(array) {
     let newArray = [];
     newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -54,25 +55,35 @@ const Hero = () => {
       newArray[i] = newArray[random];
       newArray[random] = temp;
     }
-
-    let testCharacters = newArray.map((item) => item.character);
-
-    if (
-      testCharacters.join("") === "DARK" ||
-      testCharacters.join("") === "LIGHT"
-    ) {
-      shuffleArray(newArray);
-    }
-
+    // console.log("shuffle" + "" + newArray.map((item) => item.character));
     return newArray;
   }
 
+  function shuffle(array) {
+    let shuffledCharacterList = [];
+
+    shuffledCharacterList = shuffleList(array);
+    let testCharacters = shuffledCharacterList.map((item) => item.character);
+    // console.log("color" + " " + testCharacters);
+    if (
+      testCharacters.join("") === "LIGHT" ||
+      testCharacters.join("") === "DARK"
+    ) {
+      // console.log("found" + " " + testCharacters);
+      shuffledCharacterList = shuffleList(array);
+    }
+    // console.log(
+    //   "display" + "" + shuffledCharacterList.map((item) => item.character)
+    // );
+    return shuffledCharacterList;
+  }
+
   const [shuffledDarkCharacterList, setShuffledDarkCharacterList] = useState(
-    shuffleArray(darkCharacterList)
+    shuffle(darkCharacterList)
   );
 
   const [shuffledLightCharacterList, setShuffledLightCharacterList] = useState(
-    shuffleArray(lightCharacterList)
+    shuffle(lightCharacterList)
   );
 
   const [darkCharacter, setDarkCharacter] = useState([]);
@@ -106,6 +117,7 @@ const Hero = () => {
     }
   }
 
+  // get stored theme color form localStorage
   const theme = JSON.parse(localStorage.getItem("theme"));
 
   useEffect(() => {
@@ -157,7 +169,7 @@ const Hero = () => {
           <div className="w-full pt-[1rem] md:pt-0">
             <div className="font-[800] overflow-hidden flex items-center justify-start text-[36px] leading-[1.2] w-full text-black dark:text-white lg:text-[49px]">
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -172,7 +184,7 @@ const Hero = () => {
               </motion.span>
               &nbsp;
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -187,7 +199,7 @@ const Hero = () => {
               </motion.span>
               &nbsp;
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -201,7 +213,7 @@ const Hero = () => {
                 Shehan
               </motion.span>
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1022 ? 40 : 50 }}
+                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -215,11 +227,16 @@ const Hero = () => {
                 {darkMode ? "👋🏻" : "👋"}
               </motion.span>
             </div>
-            <motion.div className="font-[400] overflow-hidden text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] lg:text-[19px]">
+            <div className="font-[400] overflow-hidden text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] lg:text-[19px]">
               <motion.p
                 initial={{
                   opacity: 0,
-                  y: window.innerWidth <= 1022 ? -40 : -50,
+                  y:
+                    window.innerWidth <= 1023
+                      ? window.innerWidth >= 682
+                        ? -20
+                        : -40
+                      : -50,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -234,7 +251,7 @@ const Hero = () => {
                 I'm a front-end developer with a passion for building a
                 beautiful and functional websites.
               </motion.p>
-            </motion.div>
+            </div>
             <motion.div
               className="flex justify-start items-center mt-4 gap-4 lg:mt-8"
               initial={{ opacity: 0, x: -10 }}

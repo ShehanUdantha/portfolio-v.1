@@ -167,7 +167,7 @@ const Contact = () => {
             >
               <FiPhoneCall className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
               <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
-                +94702678212
+                +94 702678212
               </div>
               <MdOutlineContentCopy
                 className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"

@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { HiOutlineDocumentText } from "react-icons/hi";
 
 const About = () => {
+  const CV =
+    "https://drive.google.com/uc?export=download&id=1-xglhBx41UUGroNxsMf3BoAd5qOBn9yL";
+
   return (
     <section
       className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem]"
@@ -57,13 +60,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.5 }}
             >
-              <motion.button
-                className="flex items-center justify-center gap-1 h-[44px] w-[150px] text-[14px] rounded-md shadow-xl bg-black text-white dark:bg-white/90 dark:text-black"
-                whileHover={{ scale: 1.1 }}
-              >
-                Download CV
-                <HiOutlineDocumentText className="h-[17px] w-[18px]" />
-              </motion.button>
+              <a href={CV} download="Shehan_Udantha_CV">
+                <motion.button
+                  className="flex items-center justify-center gap-1 h-[44px] w-[150px] text-[14px] rounded-md shadow-xl bg-black text-white dark:bg-white/90 dark:text-black"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  Download CV
+                  <HiOutlineDocumentText className="h-[17px] w-[18px]" />
+                </motion.button>
+              </a>
             </motion.div>
           </div>
         </div>
