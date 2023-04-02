@@ -133,7 +133,7 @@ const Contact = () => {
     >
       <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:px-[3.5rem] xl:py-[4.5rem] xl:px-[11.5rem]">
         <motion.div
-          className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white md:text-[34px]"
+          className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -141,7 +141,7 @@ const Contact = () => {
           Contact Me
         </motion.div>
 
-        <div className="w-full flex flex-col pt-[4rem] md:flex-row">
+        <div className="w-full flex flex-col pt-[4rem] mini:pt-[3rem] md:flex-row">
           {/* email, phone, address details section */}
           <div className="w-full flex flex-col justify-start items-center md:pl-10 md:pt-20">
             <motion.div
@@ -266,7 +266,7 @@ const Contact = () => {
             </p>
             {/* submit button */}
             <div className="flex w-full h-[45px] justify-center mt-5">
-              <button className="bg-black text-white px-[3rem] rounded-md text-[14px] shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-black/70 dark:bg-white/90 dark:text-black dark:font-medium">
+              <button className="bg-black text-white px-[3rem] rounded-md text-[14px] shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-black/70 dark:shadow-none dark:bg-white/90 dark:text-black dark:font-medium">
                 Submit
               </button>
             </div>

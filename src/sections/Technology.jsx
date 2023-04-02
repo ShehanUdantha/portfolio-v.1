@@ -67,7 +67,7 @@ const Technology = () => {
             {tools.map((tool, index) => {
               return (
                 <motion.div
-                  className="flex gap-2 justify-center ml-1 mb-1 items-center h-[160px] border border-[#DBDBDB] flex-col overflow-hidden dark:border-[#919191] lg:flex-row"
+                  className="flex gap-2 justify-center ml-1 mb-1 items-center h-[160px] border border-[#DBDBDB] flex-col overflow-hidden dark:border-[#919191] mini:h-[130px] lg:flex-row"
                   key={index + tool.id}
                   whileHover={{
                     scale: 1.025,

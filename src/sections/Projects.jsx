@@ -15,9 +15,8 @@ const Projects = () => {
       github: "https://github.com/ToshaEX/SALOnLK",
       demo: "http://128.199.83.236:3000/",
       image: Salon,
-      animation: true,
-      normalY: "65%",
-      highY: "73%",
+      normalY: "65",
+      highY: "73",
     },
     {
       name: "Memory Game",
@@ -27,7 +26,8 @@ const Projects = () => {
       github: "https://github.com/ShehanUdantha/floating-memory-game",
       demo: "https://floating-memory-game.pages.dev/",
       image: MemoryGame,
-      animation: false,
+      normalY: "0",
+      highY: "0",
     },
   ];
   return (
@@ -37,7 +37,7 @@ const Projects = () => {
     >
       <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:pr-[3.5rem] lg:pl-[3rem] xl:py-[4.5rem] xl:px-[11.5rem]">
         <motion.div
-          className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white md:text-[34px]"
+          className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -50,13 +50,13 @@ const Projects = () => {
           {projectDetails?.map((project, index) => {
             return (
               <div
-                className="w-full pt-[4.5rem] flex flex-col"
+                className="w-full pt-[4.5rem] flex flex-col mini:pt-[3rem]"
                 key={index + 0.5}
               >
                 <div className="w-full px-[2rem]">
                   {/* project name */}
                   <motion.div
-                    className="text-[24px] font-semibold text-black/90 flex justify-center dark:text-white/90 md:justify-start"
+                    className="text-[24px] font-semibold text-black/90 flex justify-center dark:text-white/90 mini:text-[22px] md:justify-start"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
@@ -69,7 +69,7 @@ const Projects = () => {
                     {/* description area */}
                     <div className="w-full md:pl-[2rem] md:mt-[1.5rem]">
                       <motion.div
-                        className="bg-black/90 text-white text-[14px] p-[2rem] min-h-[200px] max-h-[270px] rounded-b-md backdrop-blur w-full overflow-hidden md:rounded-l-md md:rounded-br-none lg:w-full dark:bg-[#1e1e1e]"
+                        className="bg-black/90 text-white text-[14px] p-[2rem] min-h-[200px] max-h-[270px] rounded-b-md backdrop-blur w-full overflow-hidden dark:bg-[#1e1e1e] mini:text-[12px] mini:py-[1rem] md:rounded-l-md md:rounded-br-none lg:w-full"
                         initial={{ y: -15, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         transition={{
@@ -146,7 +146,7 @@ const Projects = () => {
                   </div>
                   {/* demo image section */}
                   <motion.div
-                    className="w-full h-[280px] rounded-t-lg overflow-hidden mt-[2rem] shadow-md md:rounded-lg md:mt-[1.5rem] lg:mt-[2px]"
+                    className="w-full h-[280px] rounded-t-lg overflow-hidden mt-[2rem] shadow-sm-lf dark:shadow-none mini:h-[190px] md:shadow-xl md:rounded-lg md:mt-[1.5rem] lg:mt-[2px]"
                     initial={{ y: -15, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{
@@ -157,11 +157,7 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.name}
-                      className={`transition-all duration-2000 ${
-                        project.animation
-                          ? `hover:-translate-y-[${project.normalY}] md:hover:-translate-y-[${project.highY}]`
-                          : ""
-                      }`}
+                      className={`transition-all duration-2000 hover:-translate-y-[${project.normalY}%] md:hover:-translate-y-[${project.highY}%]`}
                     />
                   </motion.div>
                 </div>

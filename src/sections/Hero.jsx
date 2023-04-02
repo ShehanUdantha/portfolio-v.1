@@ -135,10 +135,10 @@ const Hero = () => {
         localStorage.setItem("theme", JSON.stringify(true));
         document.documentElement.classList.add("dark");
         setDarkCharacter([]);
-        setShuffledDarkCharacterList(shuffleArray(darkCharacterList));
+        setShuffledDarkCharacterList(shuffle(darkCharacterList));
       } else {
         setDarkCharacter([]);
-        setShuffledDarkCharacterList(shuffleArray(darkCharacterList));
+        setShuffledDarkCharacterList(shuffle(darkCharacterList));
       }
     }
     if (lightCharacter.length === lightCharacterList.length) {
@@ -147,10 +147,10 @@ const Hero = () => {
         localStorage.setItem("theme", JSON.stringify(false));
         document.documentElement.classList.remove("dark");
         setLightCharacter([]);
-        setShuffledLightCharacterList(shuffleArray(lightCharacterList));
+        setShuffledLightCharacterList(shuffle(lightCharacterList));
       } else {
         setLightCharacter([]);
-        setShuffledLightCharacterList(shuffleArray(lightCharacterList));
+        setShuffledLightCharacterList(shuffle(lightCharacterList));
       }
     }
   }, [darkCharacter, lightCharacter]);
@@ -167,9 +167,17 @@ const Hero = () => {
         <div className="flex flex-col items-center w-full lg:flex-row lg:mt-0">
           {/* text area section */}
           <div className="w-full pt-[1rem] md:pt-0">
-            <div className="font-[800] overflow-hidden flex items-center justify-start text-[36px] leading-[1.2] w-full text-black dark:text-white lg:text-[49px]">
+            <div className="font-[800] overflow-hidden flex items-center justify-start text-[36px] leading-[1.2] w-full text-black dark:text-white mini:text-[28px] lg:text-[49px]">
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
+                initial={{
+                  opacity: 0,
+                  y:
+                    window.innerWidth <= 1023
+                      ? window.innerWidth > 280
+                        ? 40
+                        : 20
+                      : 50,
+                }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -184,7 +192,15 @@ const Hero = () => {
               </motion.span>
               &nbsp;
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
+                initial={{
+                  opacity: 0,
+                  y:
+                    window.innerWidth <= 1023
+                      ? window.innerWidth > 280
+                        ? 40
+                        : 20
+                      : 50,
+                }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -199,7 +215,15 @@ const Hero = () => {
               </motion.span>
               &nbsp;
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
+                initial={{
+                  opacity: 0,
+                  y:
+                    window.innerWidth <= 1023
+                      ? window.innerWidth > 280
+                        ? 40
+                        : 20
+                      : 50,
+                }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -213,7 +237,15 @@ const Hero = () => {
                 Shehan
               </motion.span>
               <motion.span
-                initial={{ opacity: 0, y: window.innerWidth <= 1023 ? 40 : 50 }}
+                initial={{
+                  opacity: 0,
+                  y:
+                    window.innerWidth <= 1023
+                      ? window.innerWidth > 280
+                        ? 40
+                        : 20
+                      : 50,
+                }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
@@ -227,7 +259,7 @@ const Hero = () => {
                 {darkMode ? "👋🏻" : "👋"}
               </motion.span>
             </div>
-            <div className="font-[400] overflow-hidden text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 md:pt-[0.4rem] lg:text-[19px]">
+            <div className="font-[400] overflow-hidden text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 mini:text-[14px] md:pt-[0.4rem] lg:text-[19px]">
               <motion.p
                 initial={{
                   opacity: 0,
@@ -278,7 +310,7 @@ const Hero = () => {
           </div>
           {/* drag and drop section */}
           <div
-            className={`flex justify-end items-center w-full pt-[5rem] overflow-hidden md:pt-0 ${
+            className={`flex justify-end items-center w-full pt-[5rem] overflow-hidden mini:pt-[3.5rem] md:pt-0 ${
               darkMode ? "xl:px-[2.7rem]" : "xl:px-[4.5rem]"
             }`}
           >
@@ -293,15 +325,15 @@ const Hero = () => {
                 delay: 1.3,
               }}
             >
-              <div className="h-[80px] w-full max-w-[270px] border-dashed border-[2px] border-black overflow-clip dark:border-white md:h-[100px] md:max-w-[325px] dark:max-w-[285px] md:dark:max-w-[340px]">
+              <div className="h-[80px] w-full max-w-[270px] flex items-center border-dashed border-[2px] border-black overflow-clip dark:border-white dark:max-w-[285px] mini:w-[220px] md:h-[100px] md:max-w-[325px] md:dark:max-w-[340px]">
                 <div className="w-full relative">
                   {/* dashed text inside of the box */}
-                  <div className="flex gap-[1.3rem] w-full leading-[1.3] px-[14px] pr-6 dark:gap-[1rem] dark:pl-[14px] dark:pr-0">
+                  <div className="flex gap-[1.3rem] w-full leading-[1.3] px-[14px] pr-6 pt-0 dark:gap-[1rem] dark:pl-[14px] dark:pr-0 mini:gap-[0.6rem] dark:mini:gap-[0.35rem] dark:mini:pt-[1.5px]">
                     {(darkMode ? lightCharacterList : darkCharacterList).map(
                       (item, index) => {
                         return (
                           <div
-                            className="text-[60px] dashed-font text-black opacity-20 dark:text-white md:text-[79px]"
+                            className="text-[60px] dashed-font text-black opacity-20 dark:text-white mini:text-[55px] md:text-[79px]"
                             key={index + item.id}
                           >
                             {item.character}
@@ -312,7 +344,7 @@ const Hero = () => {
                   </div>
                   {/* dropping character display section */}
                   <div
-                    className="absolute h-[70px] w-full top-0 flex items-center gap-[17px] pt-[2px] px-4 dark:gap-[15px] md:px-3 md:h-[98px]"
+                    className="absolute h-[70px] w-full top-0 flex items-center gap-[17px] pt-[2px] px-4 dark:gap-[15px] mini:gap-[9px] md:px-3 md:h-[98px] dark:mini:gap-[6px]"
                     onDrop={handleOnDrop}
                     onDragOver={handleOnDragOver}
                   >
@@ -320,7 +352,7 @@ const Hero = () => {
                       (item, index) => {
                         return (
                           <div
-                            className="text-[65px] font-bold leading-[1.1] text-black dark:text-white md:text-[86px]"
+                            className="text-[65px] font-bold leading-[1.1] text-black dark:text-white mini:text-[55px] md:text-[86px]"
                             key={index}
                           >
                             {item}
@@ -384,7 +416,7 @@ const Hero = () => {
                     return (
                       <motion.div
                         key={item.id}
-                        className="font-bold text-[44px] text-black/60 bg-transparent cursor-pointer hover:opacity-90 transition duration-500 dark:text-white"
+                        className="font-bold text-[44px] text-black/60 bg-transparent cursor-pointer hover:opacity-90 transition duration-500 dark:text-white mini:text-[38px]"
                         onClick={() => handleOnTap(item.character)}
                         initial={{ scale: 0 }}
                         animate={{ rotate: [0, 180, 0], scale: 1 }}

@@ -17,6 +17,12 @@ module.exports = {
         0: "0ms",
         2000: "2000ms",
       },
+      boxShadow: {
+        "sm-lf": "0 10px 16px -5px rgba(0, 0, 0, 0.3)",
+      },
+      screens: {
+        mini: { max: "280px" },
+      },
     },
   },
   plugins: [],

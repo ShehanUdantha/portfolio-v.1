@@ -94,7 +94,7 @@ const NavBar = () => {
                 },
               }}
             >
-              <ul className="flex gap-6 text-[13px] font-semibold">
+              <ul className="flex gap-6 text-[13px] font-semibold mini:gap-3">
                 {navItemsList.map((item, index) => {
                   return (
                     <li
