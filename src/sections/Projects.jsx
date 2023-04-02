@@ -15,8 +15,8 @@ const Projects = () => {
       github: "https://github.com/ToshaEX/SALOnLK",
       demo: "http://128.199.83.236:3000/",
       image: Salon,
-      normalY: "65",
-      highY: "73",
+      animation: true,
+      style: "hover:-translate-y-[65%] md:hover:-translate-y-[73%]",
     },
     {
       name: "Memory Game",
@@ -26,8 +26,7 @@ const Projects = () => {
       github: "https://github.com/ShehanUdantha/floating-memory-game",
       demo: "https://floating-memory-game.pages.dev/",
       image: MemoryGame,
-      normalY: "0",
-      highY: "0",
+      animation: false,
     },
   ];
   return (
@@ -157,8 +156,11 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.name}
-                      className={`transition-all duration-2000 hover:-translate-y-[${project.normalY}%] md:hover:-translate-y-[${project.highY}%]`}
+                      className={`transition-all duration-2000 ${
+                        project.animation ? project.style : ""
+                      }`}
                     />
+                    console.log()
                   </motion.div>
                 </div>
               </div>
