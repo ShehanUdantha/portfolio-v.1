@@ -52,7 +52,7 @@ const Technology = () => {
       className="py-[1rem] bg-white pr-[22px] pl-[18px] dark:bg-[#121212] md:px-[3rem]"
       id="technology"
     >
-      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:pr-[3.5rem] lg:pl-[3rem] xl:px-[11.5rem]">
+      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:pr-[3.5rem] lg:pl-[3rem] xl:pb-[4.5rem] xl:px-[9.3rem]">
         <div className="font-[600] w-full text-[18px] leading-[1.2] text-center dark:text-white">
           Languages and Tools I use
         </div>

@@ -13,10 +13,10 @@ const Projects = () => {
         "SalonLK is a salon website where customers can choose from a wide range of services and easily schedule their appointment. This website is the result of our university group project, and I have developed the front-end part of this website.",
       tools: ["React", "Tailwind CSS"],
       github: "https://github.com/ToshaEX/SALOnLK",
-      demo: "http://128.199.83.236:3000/",
+      demo: "http://143.198.210.185/",
       image: Salon,
       animation: true,
-      style: "hover:-translate-y-[65%] md:hover:-translate-y-[73%]",
+      style: "hover:-translate-y-[65%] lg:hover:-translate-y-[73.5%]",
     },
     {
       name: "Memory Game",
@@ -34,11 +34,12 @@ const Projects = () => {
       className="py-[1rem] bg-white px-[22px] dark:bg-[#121212] md:px-[3rem]"
       id="projects"
     >
-      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:pr-[3.5rem] lg:pl-[3rem] xl:py-[4.5rem] xl:px-[11.5rem]">
+      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:pr-[3.5rem] lg:pl-[3rem] xl:py-[4.5rem] xl:px-[9.3rem]">
         <motion.div
           className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           Projects
@@ -58,6 +59,7 @@ const Projects = () => {
                     className="text-[24px] font-semibold text-black/90 flex justify-center dark:text-white/90 mini:text-[22px] md:justify-start"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.6, duration: 0.5 }}
                   >
                     {project.name}
@@ -71,6 +73,7 @@ const Projects = () => {
                         className="bg-black/90 text-white text-[14px] p-[2rem] min-h-[200px] max-h-[270px] rounded-b-md backdrop-blur w-full overflow-hidden dark:bg-[#1e1e1e] mini:text-[12px] mini:py-[1rem] md:rounded-l-md md:rounded-br-none lg:w-full"
                         initial={{ y: -15, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true }}
                         transition={{
                           duration: 1,
                           delay: 0.7,
@@ -98,6 +101,7 @@ const Projects = () => {
                         <motion.div
                           initial={{ x: -15, opacity: 0 }}
                           whileInView={{ x: 0, opacity: 1 }}
+                          viewport={{ once: true }}
                           transition={{
                             duration: 1,
                             delay: 0.9,
@@ -118,6 +122,7 @@ const Projects = () => {
                         <motion.div
                           initial={{ x: -15, opacity: 0 }}
                           whileInView={{ x: 0, opacity: 1 }}
+                          viewport={{ once: true }}
                           transition={{
                             duration: 1,
                             delay: 1,
@@ -148,6 +153,7 @@ const Projects = () => {
                     className="w-full h-[280px] rounded-t-lg overflow-hidden mt-[2rem] shadow-sm-lf dark:shadow-none mini:h-[190px] md:shadow-xl md:rounded-lg md:mt-[1.5rem] lg:mt-[2px]"
                     initial={{ y: -15, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{
                       duration: 1,
                       delay: 0.7,
@@ -160,7 +166,6 @@ const Projects = () => {
                         project.animation ? project.style : ""
                       }`}
                     />
-                    console.log()
                   </motion.div>
                 </div>
               </div>

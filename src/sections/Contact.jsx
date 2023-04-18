@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
@@ -131,11 +131,12 @@ const Contact = () => {
       className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem]"
       id="contact"
     >
-      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:px-[3.5rem] xl:py-[4.5rem] xl:px-[11.5rem]">
+      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:px-[3.5rem]  xl:px-[9.3rem] xl:py-[4.5rem]">
         <motion.div
           className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           Contact Me
@@ -148,6 +149,7 @@ const Contact = () => {
               className="flex items-center justify-start w-full gap-2"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
               <MdOutlineEmail className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
@@ -163,6 +165,7 @@ const Contact = () => {
               className="flex items-center justify-start w-full gap-2 pt-8"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <FiPhoneCall className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
@@ -178,6 +181,7 @@ const Contact = () => {
               className="flex items-center justify-start w-full gap-2 pt-8"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <GoLocation className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
@@ -193,6 +197,7 @@ const Contact = () => {
             className="w-full flex flex-col pt-[3rem] md:pt-0"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
             {/* name field */}

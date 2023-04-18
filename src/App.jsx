@@ -1,4 +1,3 @@
-import "./App.css";
 import NavBar from "./components/NavBar";
 import About from "./sections/About";
 import Contact from "./sections/Contact";

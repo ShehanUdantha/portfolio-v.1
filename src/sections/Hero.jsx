@@ -163,8 +163,8 @@ const Hero = () => {
       id="home"
     >
       {/* body details section */}
-      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center lg:pt-0 lg:pl-[3rem] xl:pl-[11.5rem] xl:pr-[5rem]">
-        <div className="flex flex-col items-center w-full lg:flex-row lg:mt-0">
+      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center lg:pt-0 lg:pl-[3rem] xl:pl-[9rem] xl:pr-[2.8rem]">
+        <div className="flex flex-col items-center w-full md:flex-row lg:mt-0">
           {/* text area section */}
           <div className="w-full pt-[1rem] md:pt-0">
             <div className="font-[800] overflow-hidden flex items-center justify-start text-[36px] leading-[1.2] w-full text-black dark:text-white mini:text-[28px] lg:text-[49px]">
@@ -182,6 +182,7 @@ const Hero = () => {
                   opacity: 1,
                   y: 0,
                 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 1,
                   delay: 0.2,
@@ -205,6 +206,7 @@ const Hero = () => {
                   opacity: 1,
                   y: 0,
                 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 1,
                   delay: 0.3,
@@ -228,6 +230,7 @@ const Hero = () => {
                   opacity: 1,
                   y: 0,
                 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 1,
                   delay: 0.3,
@@ -250,6 +253,7 @@ const Hero = () => {
                   opacity: 1,
                   y: 0,
                 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 1,
                   delay: 0.5,
@@ -265,15 +269,16 @@ const Hero = () => {
                   opacity: 0,
                   y:
                     window.innerWidth <= 1023
-                      ? window.innerWidth >= 682
-                        ? -20
-                        : -40
+                      ? window.innerWidth >= 682 && window.innerWidth < 768
+                        ? 10
+                        : -30
                       : -50,
                 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
                 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 1.3,
                   delay: 0.7,
@@ -288,6 +293,7 @@ const Hero = () => {
               className="flex justify-start items-center mt-4 gap-4 lg:mt-8"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 1.3, duration: 0.8 }}
             >
               <a
@@ -316,16 +322,17 @@ const Hero = () => {
           >
             <motion.div
               className={`flex flex-col justify-center items-center pt-0 w-full md:pt-10 ${
-                darkMode ? "px-[1.6rem] md:px-[2.8rem]" : "px-[2rem]"
+                darkMode ? "px-[1.6rem] lg:px-[2.8rem]" : "px-[2rem]"
               }`}
               initial={{ y: -10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1,
                 delay: 1.3,
               }}
             >
-              <div className="h-[80px] w-full max-w-[270px] flex items-center border-dashed border-[2px] border-black overflow-clip dark:border-white dark:max-w-[285px] mini:w-[220px] md:h-[100px] md:max-w-[325px] md:dark:max-w-[340px]">
+              <div className="h-[80px] w-full max-w-[270px] flex items-center border-dashed border-[2px] border-black overflow-clip dark:border-white dark:max-w-[285px] mini:w-[220px] lg:h-[100px] lg:max-w-[325px] lg:dark:max-w-[340px]">
                 <div className="w-full relative">
                   {/* dashed text inside of the box */}
                   <div className="flex gap-[1.3rem] w-full leading-[1.3] px-[14px] pr-6 pt-0 dark:gap-[1rem] dark:pl-[14px] dark:pr-0 mini:gap-[0.6rem] dark:mini:gap-[0.35rem] dark:mini:pt-[1.5px]">
@@ -333,7 +340,7 @@ const Hero = () => {
                       (item, index) => {
                         return (
                           <div
-                            className="text-[60px] dashed-font text-black opacity-20 dark:text-white mini:text-[55px] md:text-[79px]"
+                            className="text-[60px] dashed-font text-black opacity-20 dark:text-white mini:text-[55px] lg:text-[79px]"
                             key={index + item.id}
                           >
                             {item.character}
@@ -344,7 +351,7 @@ const Hero = () => {
                   </div>
                   {/* dropping character display section */}
                   <div
-                    className="absolute h-[70px] w-full top-0 flex items-center gap-[17px] pt-[2px] px-4 dark:gap-[15px] mini:gap-[9px] md:px-3 md:h-[98px] dark:mini:gap-[6px]"
+                    className="absolute h-[70px] w-full top-0 flex items-center gap-[17px] pt-[2px] px-4 dark:gap-[15px] mini:gap-[9px] lg:px-3 lg:h-[98px] dark:mini:gap-[6px]"
                     onDrop={handleOnDrop}
                     onDragOver={handleOnDragOver}
                   >
@@ -352,7 +359,7 @@ const Hero = () => {
                       (item, index) => {
                         return (
                           <div
-                            className="text-[65px] font-bold leading-[1.1] text-black dark:text-white mini:text-[55px] md:text-[86px]"
+                            className="text-[65px] font-bold leading-[1.1] text-black dark:text-white mini:text-[55px] lg:text-[86px]"
                             key={index}
                           >
                             {item}
