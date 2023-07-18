@@ -1,34 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import Salon from "../assets/salon.png";
-import MemoryGame from "../assets/memory-game.png";
 import ToolTip from "../components/ToolTip";
+import { db } from "../config/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Projects = () => {
-  const projectDetails = [
-    {
-      name: "SalonLK",
-      description:
-        "SalonLK is a salon website where customers can choose from a wide range of services and easily schedule their appointment. This website is the result of our university group project, and I have developed the front-end part of this website.",
-      tools: ["React", "Tailwind CSS"],
-      github: "https://github.com/ToshaEX/SALOnLK",
-      demo: "http://143.198.210.185/",
-      image: Salon,
-      animation: true,
-      style: "hover:-translate-y-[65%] lg:hover:-translate-y-[73.5%]",
-    },
-    {
-      name: "Memory Game",
-      description:
-        "I created a simple memory game to practice my JavaScript skills. The player's task is to remember the box sequence and select a box in the correct ascending order.",
-      tools: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/ShehanUdantha/floating-memory-game",
-      demo: "https://floating-memory-game.pages.dev/",
-      image: MemoryGame,
-      animation: false,
-    },
-  ];
+  const [projectsList, setProjectsList] = useState([]);
+  const projectsRef = collection(db, "projects");
+
+  useEffect(() => {
+    const getProjectsList = async () => {
+      // read data from db
+      //set the project list
+      try {
+        const data = await getDocs(projectsRef);
+        const filteredProjects = data.docs.map((doc) => ({
+          ...doc.data(),
+        }));
+        setProjectsList(filteredProjects);
+      } catch (e) {
+        console.log("error", e.message);
+      }
+    };
+
+    getProjectsList();
+  }, []);
+
   return (
     <section
       className="py-[1rem] bg-white px-[22px] dark:bg-[#121212] md:px-[3rem]"
@@ -47,7 +45,7 @@ const Projects = () => {
 
         {/* projects view section */}
         <div className="w-full">
-          {projectDetails?.map((project, index) => {
+          {projectsList?.map((project, index) => {
             return (
               <div
                 className="w-full pt-[4.5rem] flex flex-col mini:pt-[3rem]"

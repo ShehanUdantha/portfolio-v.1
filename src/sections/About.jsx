@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Profile from "../assets/profile.png";
 import { motion } from "framer-motion";
 import { HiOutlineDocumentText } from "react-icons/hi";
+import { db } from "../config/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import Spinner from "../assets/Spinner-1.9s-44px.svg";
 
 const About = () => {
-  const CV =
-    "https://drive.google.com/uc?export=download&id=1QcjheiRudrZxst7LvCDlmcV7yytI55xO";
+  const [isClick, setIsClick] = useState(false);
+
+  const [CV, setCV] = useState();
+  const cvRef = doc(db, "cv", "GzGzbA1FW6GjP2teVymY");
+
+  useEffect(() => {
+    const getCV = async () => {
+      try {
+        const dataSnap = await getDoc(cvRef);
+        setCV(dataSnap.data().url);
+      } catch (e) {
+        console.log("error", e.message);
+      }
+    };
+    getCV();
+  }, []);
 
   return (
     <section
@@ -63,14 +80,34 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 1.1, duration: 0.5 }}
+              onClick={() => {
+                setIsClick(true);
+                setTimeout(() => {
+                  setIsClick(false);
+                }, 4000);
+              }}
             >
               <a href={CV} download="Shehan_Udantha_CV">
                 <motion.button
-                  className="flex items-center justify-center gap-1 h-[44px] w-[150px] text-[14px] rounded-md shadow-xl bg-black text-white dark:shadow-none dark:bg-white/90 dark:text-black"
+                  className="h-[44px] px-4 text-[14px] rounded-md shadow-xl bg-black text-white dark:shadow-none dark:bg-white/90 dark:text-black"
                   whileHover={{ scale: 1.1 }}
                 >
-                  Download CV
-                  <HiOutlineDocumentText className="h-[17px] w-[18px]" />
+                  <div
+                    className={`flex items-center justify-center gap-1 ${
+                      isClick ? "hidden" : "display"
+                    }`}
+                  >
+                    Download CV
+                    <HiOutlineDocumentText className="h-[17px] w-[18px]" />
+                  </div>
+                  <div
+                    className={`flex items-center justify-center ${
+                      isClick ? "display" : "hidden"
+                    }`}
+                  >
+                    <img src={Spinner} alt="spinner" />
+                    Downloading...
+                  </div>
                 </motion.button>
               </a>
             </motion.div>

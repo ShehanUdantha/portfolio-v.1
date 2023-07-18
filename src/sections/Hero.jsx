@@ -298,7 +298,7 @@ const Hero = () => {
             >
               <a
                 className="hover:opacity-50 transition duration-500"
-                href="https://www.linkedin.com/in/shehan-udantha-4a69651b4/"
+                href="https://www.linkedin.com/in/shehan-udantha/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
