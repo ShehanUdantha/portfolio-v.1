@@ -128,68 +128,72 @@ const Contact = () => {
 
   return (
     <section
-      className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem]"
+      className="pt-[1rem] pb-[4rem] bg-white px-[22px] dark:bg-[#121212] md:px-[3rem] md:flex md:justify-center"
       id="contact"
     >
-      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:px-[3.5rem]  xl:px-[9.3rem] xl:py-[4.5rem]">
-        <motion.div
-          className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          Contact Me
-        </motion.div>
-
-        <div className="w-full flex flex-col pt-[4rem] mini:pt-[3rem] md:flex-row">
-          {/* email, phone, address details section */}
-          <div className="w-full flex flex-col justify-start items-center md:pl-10 md:pt-20">
+      <div className="flex h-full max-w-4xl w-full justify-center items-start md:items-center">
+        <div className="flex flex-col w-full items-center md:flex-row md:items-start">
+          {/* title and details section */}
+          <div className="w-full pt-[1rem] md:pt-0">
+            {/* title */}
             <motion.div
-              className="flex items-center justify-start w-full gap-2"
-              initial={{ opacity: 0, x: -10 }}
+              className="font-[600] w-full flex text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <MdOutlineEmail className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
-              <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
-                shehansub@gmail.com
-              </div>
-              <MdOutlineContentCopy
-                className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
-                onClick={() => handleCopy("shehansub@gmail.com")}
-              />
+              Contact Me
             </motion.div>
-            <motion.div
-              className="flex items-center justify-start w-full gap-2 pt-8"
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              <FiPhoneCall className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
-              <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
-                +94 702678212
-              </div>
-              <MdOutlineContentCopy
-                className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
-                onClick={() => handleCopy("+94702678212")}
-              />
-            </motion.div>
-            <motion.div
-              className="flex items-center justify-start w-full gap-2 pt-8"
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              <GoLocation className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
-              <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
-                Gampaha, Sri Lanka
-              </div>
-            </motion.div>
+            {/* email, phone, address details section */}
+            <div className="w-full flex flex-col justify-start items-center pt-[2.5rem] lg:pt-[4.5rem] md:pl-10 md:pt-20">
+              <motion.div
+                className="flex items-center justify-start w-full gap-2"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                <MdOutlineEmail className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
+                <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
+                  shehansub@gmail.com
+                </div>
+                <MdOutlineContentCopy
+                  className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
+                  onClick={() => handleCopy("shehansub@gmail.com")}
+                />
+              </motion.div>
+              <motion.div
+                className="flex items-center justify-start w-full gap-2 pt-8"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                <FiPhoneCall className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
+                <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
+                  +94 702678212
+                </div>
+                <MdOutlineContentCopy
+                  className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
+                  onClick={() => handleCopy("+94702678212")}
+                />
+              </motion.div>
+              <motion.div
+                className="flex items-center justify-start w-full gap-2 pt-8"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+              >
+                <GoLocation className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
+                <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
+                  Gampaha, Sri Lanka
+                </div>
+              </motion.div>
+            </div>
           </div>
+
           {/* contact form section */}
           <motion.form
             ref={formRef}

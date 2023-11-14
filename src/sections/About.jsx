@@ -26,41 +26,47 @@ const About = () => {
 
   return (
     <section
-      className="py-[1rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem]"
+      className="py-[4rem] bg-white px-[20px] dark:bg-[#121212] md:px-[3rem] md:flex md:justify-center"
       id="about"
     >
-      <div className="flex flex-col h-full w-full pt-[3rem] pb-5 justify-center items-start md:items-center lg:px-[3rem] xl:pt-[4.5rem] xl:pb-[9rem] xl:px-[9.3rem]">
-        <motion.div
-          className="font-[600] w-full text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          About Me
-        </motion.div>
-        <div className="flex flex-col w-full md:flex-row">
-          <div className="w-full">
-            {/* image section */}
+      <div className="flex h-full max-w-4xl w-full justify-center items-start md:items-center">
+        <div className="flex flex-col w-full items-center md:flex-row">
+          {/* title and image section */}
+          <div className="w-full pt-[1rem] md:pt-0">
+            {/* title */}
             <motion.div
-              className="flex justify-center pt-[2.5rem] lg:pt-[4.5rem] lg:justify-end"
-              initial={{ y: -15, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              className="font-[600] w-full flex text-[36px] leading-[1.2] dark:text-white mini:text-[28px] md:text-[34px]"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 1,
-                delay: 0.5,
-              }}
+              transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <img
-                src={Profile}
-                alt="profile"
-                className="h-[280px] w-auto rounded-xl mini:h-[240px] lg:h-[350px] lg:min-w-[310px]"
-              />
+              About Me
             </motion.div>
+            {/* image section */}
+            <div className="overflow-hidden">
+              <motion.div
+                className="flex justify-center pt-[2.5rem] lg:pt-[4.5rem]"
+                initial={{ y: -15, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  delay: 0.5,
+                }}
+              >
+                <img
+                  src={Profile}
+                  alt="profile"
+                  className="h-[280px] w-auto rounded-xl mini:h-[200px] lg:h-[350px] lg:min-w-[310px]"
+                />
+              </motion.div>
+            </div>
           </div>
-          {/* description section */}
-          <div className="w-full flex flex-col justify-center items-center lg:pl-[3rem]">
+
+          {/* description and download button section */}
+          <div className="flex flex-col w-full">
+            {/* description section */}
             <motion.div
               className="pt-[2.5rem] text-[16.8px] text-[#54565C] dark:text-white/70 mini:text-[15px] lg:pt-[5rem]"
               initial={{ x: -15, opacity: 0 }}
@@ -69,9 +75,9 @@ const About = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               Hi, My name is Shehan Udantha, I'm a Software Engineering
-              Undergraduate who loves front-end development and learn new
-              technologies. I excel in designing and maintaining responsive
-              websites that offer a smooth user experience😎.
+              Undergraduate who loves Mobile apps and Front-end Web
+              developments. And I excel in designing and maintaining beautiful
+              and responsive apps that offer a smooth user experience😎.
             </motion.div>
             {/* download button section */}
             <motion.div

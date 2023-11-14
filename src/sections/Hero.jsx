@@ -159,15 +159,14 @@ const Hero = () => {
 
   return (
     <section
-      className="py-[1rem] px-[20px] bg-white dark:bg-[#121212] md:px-[3rem] lg:h-screen"
+      className="py-[1rem] px-[20px] bg-white dark:bg-[#121212] md:flex md:justify-center lg:h-screen"
       id="home"
     >
-      {/* body details section */}
-      <div className="flex h-full w-full pt-[8rem] pb-5 justify-center items-start md:items-center lg:pt-0 lg:pl-[3rem] xl:pl-[9rem] xl:pr-[2.8rem]">
-        <div className="flex flex-col items-center w-full md:flex-row lg:mt-0">
+      <div className="flex max-w-4xl w-full pt-[8rem] mb-5 items-start md:items-center lg:pt-0">
+        <div className="flex flex-col w-full items-center mini:w-full md:flex-row">
           {/* text area section */}
           <div className="w-full pt-[1rem] md:pt-0">
-            <div className="font-[800] overflow-hidden flex items-center justify-start text-[36px] leading-[1.2] w-full text-black dark:text-white mini:text-[28px] lg:text-[49px]">
+            <div className="font-[800] overflow-hidden text-[36px] leading-[1.2] w-full text-black dark:text-white mini:text-[28px] lg:text-[49px]">
               <motion.span
                 initial={{
                   opacity: 0,
@@ -263,6 +262,7 @@ const Hero = () => {
                 {darkMode ? "👋🏻" : "👋"}
               </motion.span>
             </div>
+            {/* description */}
             <div className="font-[400] overflow-hidden text-[14.5px] leading-[1.2] text-[#54565C] pt-[0.6rem] w-full dark:text-white/70 mini:text-[14px] md:pt-[0.4rem] lg:text-[19px]">
               <motion.p
                 initial={{
@@ -285,10 +285,11 @@ const Hero = () => {
                   ease: [0.6, 0.01, 0.05, 0.95],
                 }}
               >
-                I'm a front-end developer with a passion for building a
-                beautiful and functional websites.
+                Dedicated Flutter Developer | Elevating Ideas through Innovative
+                Mobile Solutions 📱✨
               </motion.p>
             </div>
+            {/* link section */}
             <motion.div
               className="flex justify-start items-center mt-4 gap-4 lg:mt-8"
               initial={{ opacity: 0, x: -10 }}
@@ -315,11 +316,7 @@ const Hero = () => {
             </motion.div>
           </div>
           {/* drag and drop section */}
-          <div
-            className={`flex justify-end items-center w-full pt-[5rem] overflow-hidden mini:pt-[3.5rem] md:pt-0 ${
-              darkMode ? "xl:px-[2.7rem]" : "xl:px-[4.5rem]"
-            }`}
-          >
+          <div className="w-full mt-[5rem] overflow-hidden mini:mt-[3.5rem] md:mt-0">
             <motion.div
               className={`flex flex-col justify-center items-center pt-0 w-full md:pt-10 ${
                 darkMode ? "px-[1.6rem] lg:px-[2.8rem]" : "px-[2rem]"
