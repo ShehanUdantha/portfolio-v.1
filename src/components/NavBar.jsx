@@ -8,7 +8,8 @@ const NavBar = () => {
     { name: "Home", id: "1" },
     { name: "About", id: "2" },
     { name: "Projects", id: "3" },
-    { name: "Contact", id: "4" },
+    { name: "Experience", id: "4" },
+    { name: "Contact", id: "5" },
   ];
   const [navToggle, setNavToggle] = useState(false);
 
@@ -62,7 +63,7 @@ const NavBar = () => {
         <AnimatePresence mode="wait">
           {navToggle && (
             <motion.div
-              className="w-full h-[70px] bg-[#f8f8f8]/80 absolute top-7 rounded-b-lg flex items-center justify-center dark:bg-white/10 backdrop-blur-[10px] md:hidden"
+              className="w-full h-[70px] bg-[#f8f8f8]/80 absolute top-7 rounded-b-lg flex items-center justify-center dark:bg-white/10 backdrop-blur-[10px] overflow-x-auto md:hidden"
               initial={{
                 height: 0,
                 opacity: 0,
@@ -94,7 +95,7 @@ const NavBar = () => {
                 },
               }}
             >
-              <ul className="flex gap-6 text-[13px] font-semibold mini:gap-3">
+              <ul className="flex gap-6 text-[13px] font-semibold mini:gap-3 pl-20 pr-5">
                 {navItemsList.map((item, index) => {
                   return (
                     <li

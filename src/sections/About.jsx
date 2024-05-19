@@ -57,6 +57,7 @@ const About = () => {
               >
                 <img
                   src={Profile}
+                  loading="lazy"
                   alt="profile"
                   className="h-[280px] w-auto rounded-xl mini:h-[200px] lg:h-[350px] lg:min-w-[310px]"
                 />

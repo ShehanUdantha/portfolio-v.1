@@ -179,6 +179,7 @@ const Projects = () => {
                           <img
                             src={project.image}
                             alt={project.name}
+                            loading="lazy"
                             className={`transition-all duration-2000 ${
                               project.style
                                 ? "hover:-translate-y-[65%] lg:hover:-translate-y-[73.5%]"

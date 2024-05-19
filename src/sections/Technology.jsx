@@ -7,6 +7,7 @@ import {
   SiJavascript,
   SiTailwindcss,
   SiFirebase,
+  SiPostman,
 } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 import { motion } from "framer-motion";
@@ -59,12 +60,17 @@ const Technology = () => {
       tag: <SiFirebase className="h-[38px] w-[38px] hover:opacity-80" />,
     },
     {
-      id: 9,
+      id: 10,
       name: "MySQL",
       tag: <GrMysql className="h-[38px] w-[38px] hover:opacity-80" />,
     },
     {
-      id: 10,
+      id: 11,
+      name: "Postman",
+      tag: <SiPostman className="h-[38px] w-[38px] hover:opacity-80" />,
+    },
+    {
+      id: 12,
       name: "Figma",
       tag: <FiFigma className="h-[40px] w-[40px] hover:opacity-80" />,
     },
