@@ -83,9 +83,20 @@ const Experience = () => {
                     <p className="font-normal !mt-0 text-black/50 dark:text-white/80">
                       {experience.company}
                     </p>
-                    <p className="text-[#54565C] dark:text-white/70 mini:text-[15px]">
-                      {experience.description}
-                    </p>
+
+                    {/* description */}
+                    <div className="overflow-hidden">
+                      {experience.description?.map((item, index) => {
+                        return (
+                          <p
+                            className="text-[#54565C] dark:text-white/70 !mini:text-[15px]"
+                            key={index + 0.3}
+                          >
+                            {item}
+                          </p>
+                        );
+                      })}
+                    </div>
                   </VerticalTimelineElement>
                 );
               })}
