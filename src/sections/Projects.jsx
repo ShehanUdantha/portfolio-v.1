@@ -32,7 +32,7 @@ const Projects = () => {
 
   return (
     <section
-      className="py-[4rem] bg-white px-[22px] dark:bg-[#121212] md:px-[3rem] md:flex md:justify-center"
+      className="py-[4rem] bg-white px-[22px] min-h-screen dark:bg-[#121212] md:px-[3rem] md:flex md:justify-center"
       id="projects"
     >
       <div className="flex h-full max-w-4xl w-full justify-center items-start md:items-center">
@@ -123,7 +123,11 @@ const Projects = () => {
                             >
                               <ToolTip message={"view source code"}>
                                 <a
-                                  className="flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto"
+                                  className={`flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto ${
+                                    project.github.length === 0
+                                      ? "hidden"
+                                      : "block"
+                                  }`}
                                   href={project.github}
                                   target="_blank"
                                   rel="noopener noreferrer"
