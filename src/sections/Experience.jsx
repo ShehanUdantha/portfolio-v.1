@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SiFlutter } from "react-icons/si";
 import { motion } from "framer-motion";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -51,57 +45,59 @@ const Experience = () => {
             Experience
           </motion.div>
           {/* experience section */}
-          <div className="pt-[3rem]">
-            <VerticalTimeline lineColor="#DBDBDB">
-              {experiencesList?.map((experience, index) => {
-                return (
-                  <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    contentStyle={{
-                      background: "none",
-                      boxShadow: "none",
-                      border: "1px solid #DBDBDB",
-                      textAlign: "left",
-                      padding: "1.3rem 2rem",
-                    }}
-                    contentArrowStyle={{
-                      borderRight: "0.4rem solid #DBDBDB",
-                    }}
-                    style={{
-                      color: "#7d7d7d",
-                    }}
-                    date={experience.date}
-                    icon={<SiFlutter className="text-white" />}
-                    iconStyle={{
-                      background: "#1e1e1e",
-                    }}
-                    key={index + 0.7}
-                  >
-                    <h3 className="font-semibold capitalize text-black dark:text-white">
-                      {experience.role}
-                    </h3>
-                    <p className="font-normal !mt-0 text-black/50 dark:text-white/80">
-                      {experience.company}
-                    </p>
 
-                    {/* description */}
-                    <div className="overflow-hidden">
-                      {experience.description?.map((item, index) => {
-                        return (
-                          <p
-                            className="text-[#54565C] dark:text-white/70 !mini:text-[15px]"
-                            key={index + 0.3}
-                          >
-                            {item}
-                          </p>
-                        );
-                      })}
+          <motion.div
+            className="container mx-auto pt-[4.5rem] flex flex-col mini:pt-[3rem] overflow-hidden"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9 }}
+          >
+            <div className="relative">
+              <div className="absolute w-px bg-gray-200 h-full left-8 transform -translate-x-1/2" />
+              {experiencesList.map((experience, index) => (
+                <div key={index} className="flex-col mb-5">
+                  <div className="pb-5 flex items-center">
+                    <div className="flex-shrink-0">
+                      <div className="relative z-10">
+                        <img
+                          className="w-16 h-16 rounded-full p-1 border bg-white border-gray-200 object-contain"
+                          src={experience.company_logo}
+                          alt={experience.company}
+                        />
+                      </div>
                     </div>
-                  </VerticalTimelineElement>
-                );
-              })}
-            </VerticalTimeline>
-          </div>
+                    <div className="ml-8 w-full">
+                      <p className="text-sm text-gray-500 text-right dark:text-[#9D9D9D]">
+                        {experience.date}
+                      </p>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        {experience.role}
+                      </h4>
+
+                      <p className="text-sm text-gray-500 dark:text-[#A2A2A2]">
+                        {`${experience.company} - ${experience.location}`}
+                      </p>
+
+                      {/* description */}
+                      <div className="mt-3">
+                        {experience.description?.map((item, index) => {
+                          return (
+                            <p
+                              key={index + 0.3}
+                              className="text-sm text-gray-700 mt-2 dark:text-[#cccccc]"
+                            >
+                              {item}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="ml-8 gap-5 border-t border-dashed border-gray-300 w-full"></div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
