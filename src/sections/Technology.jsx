@@ -1,5 +1,11 @@
 import React from "react";
-import { FaHtml5, FaCss3Alt, FaReact, FaGitAlt } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaGitAlt,
+  FaSourcetree,
+} from "react-icons/fa";
 import { FiFigma } from "react-icons/fi";
 import {
   SiDart,
@@ -10,10 +16,10 @@ import {
   SiPostman,
 } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
-import { motion } from "framer-motion";
+import MarqueeItem from "../components/MarqueeItem";
 
 const Technology = () => {
-  const tools = [
+  const toolsListOne = [
     {
       id: 1,
       name: "Flutter",
@@ -49,28 +55,36 @@ const Technology = () => {
       name: "Tailwind",
       tag: <SiTailwindcss className="h-[40px] w-[40px] hover:opacity-80" />,
     },
+  ];
+
+  const toolsListTwo = [
     {
-      id: 8,
+      id: 1,
       name: "Git",
       tag: <FaGitAlt className="h-[41px] w-[41px] hover:opacity-80" />,
     },
     {
-      id: 9,
+      id: 2,
       name: "Firebase",
       tag: <SiFirebase className="h-[38px] w-[38px] hover:opacity-80" />,
     },
     {
-      id: 10,
+      id: 3,
       name: "MySQL",
       tag: <GrMysql className="h-[38px] w-[38px] hover:opacity-80" />,
     },
     {
-      id: 11,
+      id: 4,
+      name: "Sourcetree",
+      tag: <FaSourcetree className="h-[38px] w-[38px] hover:opacity-80" />,
+    },
+    {
+      id: 5,
       name: "Postman",
       tag: <SiPostman className="h-[38px] w-[38px] hover:opacity-80" />,
     },
     {
-      id: 12,
+      id: 6,
       name: "Figma",
       tag: <FiFigma className="h-[40px] w-[40px] hover:opacity-80" />,
     },
@@ -86,34 +100,13 @@ const Technology = () => {
           <div className="font-[600] w-full text-[18px] leading-[1.2] text-center dark:text-white">
             Languages and Tools I use
           </div>
+
           {/* technologies display section */}
           <div className="pt-[3rem]">
-            <motion.div
-              className="grid grid-cols-2 md:grid-cols-5 dark:text-[#DBDBDB]"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9 }}
-            >
-              {tools.map((tool, index) => {
-                return (
-                  <motion.div
-                    className="flex gap-2 justify-center items-center ml-1 mb-1 h-[100px] border border-[#DBDBDB] flex-col overflow-hidden dark:border-[#919191] lg:flex-row"
-                    key={index + tool.id}
-                    whileHover={{
-                      scale: 1.025,
-                      transition: {
-                        duration: 0.3,
-                      },
-                    }}
-                  >
-                    {tool.tag}
-                    <p className="font-medium text-[18px] text-center">
-                      {tool.name}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+            <div className=" text-gray-900 dark:text-[#DBDBDB]">
+              <MarqueeItem tool={toolsListOne} from={0} to={"-100%"} />
+              <MarqueeItem tool={toolsListTwo} from={"-100%"} to={0} />
+            </div>
           </div>
         </div>
       </div>

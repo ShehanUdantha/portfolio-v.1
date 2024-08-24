@@ -44,8 +44,8 @@ const Experience = () => {
           >
             Experience
           </motion.div>
-          {/* experience section */}
 
+          {/* experience section */}
           <motion.div
             className="container mx-auto pt-[4.5rem] flex flex-col mini:pt-[3rem] overflow-hidden"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -67,7 +67,7 @@ const Experience = () => {
                       </div>
                     </div>
                     <div className="ml-8 w-full">
-                      <p className="text-sm text-gray-500 text-right dark:text-[#9D9D9D]">
+                      <p className="text-sm text-gray-500 text-right dark:text-[#9D9D9D] pb-3 md:pb-1">
                         {experience.date}
                       </p>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white">

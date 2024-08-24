@@ -154,12 +154,12 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
-                <MdOutlineEmail className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
-                <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
+                <MdOutlineEmail className="w-[24px] h-[24px] text-gray-900 animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
+                <div className="text-gray-900 text-[16px] dark:text-white/70 md:text-[18px]">
                   shehansub@gmail.com
                 </div>
                 <MdOutlineContentCopy
-                  className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
+                  className="text-gray-900 opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
                   onClick={() => handleCopy("shehansub@gmail.com")}
                 />
               </motion.div>
@@ -170,12 +170,12 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <FiPhoneCall className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
-                <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
+                <FiPhoneCall className="w-[24px] h-[24px] text-gray-900 animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
+                <div className="text-gray-900 text-[16px] dark:text-white/70 md:text-[18px]">
                   +94 702678212
                 </div>
                 <MdOutlineContentCopy
-                  className="text-black opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
+                  className="text-gray-900 opacity-40 cursor-pointer hover:opacity-60 dark:text-white/50"
                   onClick={() => handleCopy("+94702678212")}
                 />
               </motion.div>
@@ -186,8 +186,8 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
-                <GoLocation className="w-[24px] h-[24px] text-black animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
-                <div className="text-black text-[16px] dark:text-white/70 md:text-[18px]">
+                <GoLocation className="w-[24px] h-[24px] text-gray-900 animate-pulse dark:text-[#a7a7a8] md:w-[28px] md:h-[28px]" />
+                <div className="text-gray-900 text-[16px] dark:text-white/70 md:text-[18px]">
                   Gampaha, Sri Lanka
                 </div>
               </motion.div>
