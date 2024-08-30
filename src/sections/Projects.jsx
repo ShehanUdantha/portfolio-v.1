@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import ToolTip from "../components/ToolTip";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { IoLogoGooglePlaystore, IoLogoAppleAppstore } from "react-icons/io5";
 
 const Projects = () => {
   const [projectsList, setProjectsList] = useState([]);
@@ -15,12 +16,17 @@ const Projects = () => {
       //set the project list
       try {
         const data = await getDocs(projectsRef);
-        const sortedData = data.docs?.sort((a, b) =>
-          a.priority > b.priority ? -1 : 1
-        );
-        const filteredProjects = sortedData.map((doc) => ({
-          ...doc.data(),
-        }));
+
+        const filteredProjects = data.docs
+          ?.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }))
+          .sort((a, b) => {
+            const priorityA = a.priority || 0;
+            const priorityB = b.priority || 0;
+            return priorityA - priorityB; // sort by priority in ascending order
+          });
         setProjectsList(filteredProjects);
       } catch (e) {
         console.log("error", e.message);
@@ -137,6 +143,7 @@ const Projects = () => {
                                 </a>
                               </ToolTip>
                             </motion.div>
+
                             <motion.div
                               initial={{ x: -15, opacity: 0 }}
                               whileInView={{ x: 0, opacity: 1 }}
@@ -162,6 +169,58 @@ const Projects = () => {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                                   </span>
+                                </a>
+                              </ToolTip>
+                            </motion.div>
+
+                            <motion.div
+                              initial={{ x: -15, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{
+                                duration: 1,
+                                delay: 1,
+                              }}
+                            >
+                              <ToolTip message={"download in PlayStore"}>
+                                <a
+                                  className={`flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto ${
+                                    project.playStore.length === 0
+                                      ? "hidden"
+                                      : "block"
+                                  }`}
+                                  href={project.playStore}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <p>PlayStore</p>
+                                  <IoLogoGooglePlaystore className="h-[21px] w-[21px]" />
+                                </a>
+                              </ToolTip>
+                            </motion.div>
+
+                            <motion.div
+                              initial={{ x: -15, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{
+                                duration: 1,
+                                delay: 1,
+                              }}
+                            >
+                              <ToolTip message={"download in AppStore"}>
+                                <a
+                                  className={`flex gap-1 w-full items-center cursor-pointer hover:opacity-50 transition duration-500 justify-center md:justify-start md:w-auto ${
+                                    project.appStore.length === 0
+                                      ? "hidden"
+                                      : "block"
+                                  }`}
+                                  href={project.appStore}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <p>AppStore</p>
+                                  <IoLogoAppleAppstore className="h-[21px] w-[21px]" />
                                 </a>
                               </ToolTip>
                             </motion.div>

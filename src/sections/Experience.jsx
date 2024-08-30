@@ -13,10 +13,17 @@ const Experience = () => {
       //set the experience list
       try {
         const data = await getDocs(experienceRef);
-        const sortedData = data.docs;
-        const filteredExperiences = sortedData.map((doc) => ({
-          ...doc.data(),
-        }));
+
+        const filteredExperiences = data.docs
+          ?.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }))
+          .sort((a, b) => {
+            const priorityA = a.priority || 0;
+            const priorityB = b.priority || 0;
+            return priorityB - priorityA; // sort by priority in descending order
+          });
 
         setExperienceList(filteredExperiences);
       } catch (e) {
@@ -47,7 +54,7 @@ const Experience = () => {
 
           {/* experience section */}
           <motion.div
-            className="container mx-auto pt-[4.5rem] flex flex-col mini:pt-[3rem] overflow-hidden"
+            className="container mx-auto pt-[4.5rem] flex flex-col min-h-[20rem] mini:pt-[3rem] overflow-hidden"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9 }}
